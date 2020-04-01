@@ -8,6 +8,7 @@
 * `$ sudo pip3 install requests requests_toolbelt`
 
 ```
+                         
  ___             ___     
 |   |___ ___ ___|_  |___ 
 | | | . | -_|   |_  |  _|
@@ -21,11 +22,13 @@ Options:
 	-r,--allow-redirect    | Allow the main redirect
 	-p,--path              | The Path (default /)
 	-m,--method            | Http method (default GET)
+	-n,--number            | Number of response (Ex : 200)
 	--threads              | Max number of concurrent HTTP(s) requests (default 10)
 	--timeout              | Seconds to wait before timeout connection (default 3)
 Examples:
 	$ cat live_domains.txt | python3 opener 
 	$ cat live_domains.txt | python3 opener --threads=100 -p /robots.txt -m get
 	$ cat live_domains.txt | python3 opener --threads=100 -p /login -m post
-	
+	$ cat live_domains.txt | python3 opener --threads=100 -p /login -m get -n 200,302
+
 ```
