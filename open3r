@@ -34,10 +34,10 @@ Options:
 	--threads              | Max number of concurrent HTTP(s) requests (default 10)
 	--timeout              | Seconds to wait before timeout connection (default 3)
 Examples:
-	$ cat live_domains.txt | python3 opener 
-	$ cat live_domains.txt | python3 opener --threads=100 -p /robots.txt -m get
-	$ cat live_domains.txt | python3 opener --threads=100 -p /login -m post
-	$ cat live_domains.txt | python3 opener --threads=100 -p /login -m get -n 200,302
+	$ cat live_domains.txt | python3 open3r 
+	$ cat live_domains.txt | python3 open3r --threads=100 -p /robots.txt -m get
+	$ cat live_domains.txt | python3 open3r --threads=100 -p /login -m post
+	$ cat live_domains.txt | python3 open3r --threads=100 -p /login -m get -n 200,302
 	""")
 def uagent():
 	agents=[
