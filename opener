@@ -101,7 +101,7 @@ def opener(host,timeout=3,redirect=False,method='get',the_path='',headers=None):
 			else:
 				mkdir(host_file)
 			chdir(f'{host.rstrip().replace("https://","").replace("http://","")}')
-			f = open(f'index_{random.randint(1,2425)}','a')
+			f = open(f'{random.randint(1,2425)}','a')
 			data = dump.dump_all(r)
 			f.write(data.decode('utf-8'))
 			chdir('../')
