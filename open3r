@@ -15,6 +15,7 @@ optp.add_option("-p","--path",dest='path')
 optp.add_option("-m","--method",dest='method')
 optp.add_option("-n","--number",dest='number')
 optp.add_option("-r","--allow_redirects",dest='redirect',action='store_true')
+optp.add_option("-o","--output",dest="output")
 optp.add_option("-h","--help",dest='help',action='store_true')
 helper = ("""                         
  ___             ___     
@@ -31,13 +32,15 @@ Options:
 	-p,--path              | The Path (default /)
 	-m,--method            | Http method (default GET)
 	-n,--number            | Number of response (Ex : 200)
+	-o,--output            | Name of results file
 	--threads              | Max number of concurrent HTTP(s) requests (default 10)
 	--timeout              | Seconds to wait before timeout connection (default 3)
 Examples:
 	$ cat live_domains.txt | python3 open3r 
 	$ cat live_domains.txt | python3 open3r --threads=100 -p /robots.txt -m get
 	$ cat live_domains.txt | python3 open3r --threads=100 -p /login -m post
-	$ cat live_domains.txt | python3 open3r --threads=100 -p /login -m get -n 200,302
+	$ cat live_domains.txt | python3 open3r --timeout=50 -p /login -m get -n 200,302
+	$ cat live_domains.txt | python3 open3r -p /phpinfo.php -o phpinfo_websites -n 200
 	""")
 def uagent():
 	agents=[
@@ -63,6 +66,10 @@ if opts.thr:
 	thr = opts.thr
 else:
 	thr = 10
+if opts.output:
+	the_output = opts.output
+else:
+	the_output = 'out'
 if opts.timeout:
 	timeout = opts.timeout
 else:
@@ -93,11 +100,11 @@ else:
 requests.packages.urllib3.disable_warnings()
 q = Queue(maxsize=0)
 logging.basicConfig(level=logging.DEBUG,format='[%(asctime)s] %(message)s',datefmt='%H:%M:%S')
-if path.exists('out'):
+if path.exists(the_output):
 	pass
 else:
-	mkdir('out')
-chdir('out')
+	mkdir(the_output)
+chdir(the_output)
 def opener(host,timeout=3,redirect=False,method='get',the_path='',headers=None,numbers=None):
 	try:
 		if method.lower() == 'get':
@@ -127,7 +134,7 @@ def opener(host,timeout=3,redirect=False,method='get',the_path='',headers=None,n
 			else:
 				mkdir(host_file)
 			chdir(f'{host.rstrip().replace("https://","").replace("http://","")}')
-			f = open(f'{random.randint(12412,14244214)}','a')
+			f = open(f'{random.randint(12165412,14244214)}','a')
 			data = dump.dump_all(r)
 			f.write(f'{host.rstrip()}{the_path}\n\n')
 			f.write(data.decode('utf-8'))
