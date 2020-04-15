@@ -33,3 +33,5 @@ Examples:
 	$ cat live_domains.txt | python3 open3r -p /phpinfo.php -o phpinfo_websites -n 200
 
 ```
+
+### <a href='https://asciinema.org/a/320331'><img src="https://i.ibb.co/4JkJWdb/video.png" alt="video" border="0"></a>
