@@ -40,7 +40,7 @@ Options:
 	-m,--method            | Http method (default GET)
 	-n,--number            | Number of response (Ex : 200)
 	-o,--output            | Name of results file
-	-d,--debug             | Debugger Mood
+	-d,--debug             | Debugging Mood
 	--threads              | Max number of concurrent HTTP(s) requests (default 10)
 	--timeout              | Seconds to wait before timeout connection (default 3)
 Examples:
