@@ -86,7 +86,7 @@ if opts.thr:
 else:
 	thr = 10
 if opts.cookies:
-	cookies = post_data(cookies)
+	cookies = post_data(opts.cookies)
 else:
 	cookies = None
 if opts.output:
