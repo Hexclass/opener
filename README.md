@@ -16,6 +16,9 @@
 
 # Coded By : Khaled Nassar @knassar702
 
+
+                         
+
 Options:
 	-h,--help              | Show help message and exit
 	-r,--allow-redirect    | Allow the main redirect
@@ -23,6 +26,7 @@ Options:
 	-m,--method            | Http method (default GET)
 	-n,--number            | Number of response (Ex : 200)
 	-o,--output            | Name of results file
+	-d,--debug             | Debugger Mood
 	--threads              | Max number of concurrent HTTP(s) requests (default 10)
 	--timeout              | Seconds to wait before timeout connection (default 3)
 Examples:
